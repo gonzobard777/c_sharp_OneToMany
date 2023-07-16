@@ -20,6 +20,9 @@ public class AppDbContext : DbContext
             b.HasKey(x => x.Id).HasName("PK_Authors_Id");
         });
         
+        /*
+         * One Author - to - Many Book
+         */
         modelBuilder.Entity<Book>(b =>
         {
             b.ToTable("Books");
