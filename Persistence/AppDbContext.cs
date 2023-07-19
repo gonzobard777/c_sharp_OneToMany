@@ -27,6 +27,7 @@ public class AppDbContext : DbContext
         {
             b.ToTable("Books");
             b.HasKey(x => x.Id).HasName("PK_Books_Id");
+            // b.Property(x => x.AuthorId).IsRequired(false);
         
             b
                 .HasOne(book => book.Author)
@@ -34,6 +35,7 @@ public class AppDbContext : DbContext
                 .HasForeignKey(book => book.AuthorId)
                 .HasConstraintName("FK_Books_AuthorId")
                 .OnDelete(DeleteBehavior.Cascade);
+             // .OnDelete(DeleteBehavior.NoAction); // если AuthorId необязательное поле
             b.HasIndex(x => x.AuthorId, "IX_Books_AuthorId").IsUnique(false);
         });
     }
