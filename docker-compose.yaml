@@ -1,7 +1,7 @@
 services:
   db_postgres:
     container_name: db_postgres_entity_relationships_OneToMany
-    image: postgres:15.2-alpine
+    image: postgres:16.4-alpine
     ports:
       - "5443:5432"
     environment:
